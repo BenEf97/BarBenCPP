@@ -39,7 +39,7 @@ void main() {
 
 
 //Checks if a sequence is an arithmetic progression ,returns True if so, else returns else False
-bool IsArithmeticProgression(int *Array, int size = 3) {
+bool IsArithmeticProgression(int *Array, int size) {
 	//Init variables, diff is the difference of successive numbers, and the value will be the differnce between the first and second elemnts.
 	int diff=Array[1]-Array[0];
 	
