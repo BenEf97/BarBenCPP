@@ -21,9 +21,15 @@
     <ClCompile Include="Date.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="Trip.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Date.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Trip.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
