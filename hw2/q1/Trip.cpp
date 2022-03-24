@@ -3,6 +3,9 @@
 #include <cstring>
 using namespace std;
 
+/*Notes:
+maybe need to do '=' operator.
+need to do print trip*/
 
 //check if date is correct
 Trip::Trip()
@@ -22,26 +25,40 @@ Trip::Trip(unsigned int Num, const char * dest, Date d)
 	setDate(d);
 }
 
+//Copy constructor, check if it works
+Trip::Trip(const Trip & t)
+{
+	NumOfTrip = t.NumOfTrip;
+	Destination = NULL;
+	setDes(t.Destination);
+	date = t.date;
+}
+
+//gets the number of the trip.
 unsigned int Trip::getNoT() const
 {
 	return NumOfTrip;
 }
 
+//gets the destination, check if it works.
 char * Trip::getDes() const
 {
 	return Destination;
 }
 
+//gets the date.
 Date Trip::getDate() const
 {
 	return date;
 }
 
+//setting the number of the trip
 void Trip::setNoT(unsigned int NoT)
 {
 	NumOfTrip = NoT;
 }
 
+//setting the destinaion, checks if it's correct, also check for duplicating of the code.
 void Trip::setDes(const char * dest)
 {
 	delete[] Destination;
@@ -58,7 +75,7 @@ void Trip::setDes(const char * dest)
 			return;
 		}
 	}
-	//if the input is valid, will allocate memory and 
+	//if the input is valid, will allocate memory
 	Destination = new char[strlen(dest) + 1];
 	strcpy_s(Destination, strlen(dest) + 1, dest);
 }
@@ -69,6 +86,8 @@ void Trip::setDate(Date d)
 {
 	date = d;
 }
+
+
 //deletes the trip
 Trip::~Trip()
 {

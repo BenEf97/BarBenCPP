@@ -8,7 +8,6 @@ void Print(Trip* arr, int size);
 void EditTrip(Trip* arr, int size);
 Trip* AddTrip(Trip* arr, int size);
 
-
 void main() {
 	int option;
 	Trip* arr = new Trip[0];
