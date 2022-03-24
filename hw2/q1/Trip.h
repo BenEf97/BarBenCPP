@@ -21,8 +21,8 @@ public:
 	void setNoT(unsigned int NoT);
 	void setDes(const char* dest);
 	void setDate(Date d);
+	~Trip();
 
 };
-
 
 #endif // !__TRIP_H

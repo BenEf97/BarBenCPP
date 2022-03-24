@@ -67,7 +67,7 @@ void Date::setYear(unsigned int y)
 
 
 //Prints the date in dd/mm/yy format.
-void Date::PrintDate()
+void Date::PrintDate() const
 {
 	cout << "The Date: "<<day<<"/"<<month<<"/"<<year<<"\n"<<endl;
 }
