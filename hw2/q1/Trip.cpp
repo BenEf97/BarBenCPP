@@ -41,7 +41,7 @@ unsigned int Trip::getNoT() const
 }
 
 //gets the destination, check if it works.
-char * Trip::getDes() const
+Const char * Trip::getDes() const
 {
 	return Destination;
 }
