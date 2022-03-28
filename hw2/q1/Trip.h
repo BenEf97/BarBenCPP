@@ -17,7 +17,7 @@ public:
 	Trip(unsigned int Num, const char*dest, Date d);
 	Trip(const Trip& t);
 	unsigned int getNoT() const;
-	char* getDes() const;
+	const char* getDes() const;
 	Date getDate() const;
 	void setNoT(unsigned int NoT);
 	void setDes(const char* dest);
