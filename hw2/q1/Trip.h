@@ -2,7 +2,7 @@
 #ifndef  __TRIP_H
 #define __TRIP_H
 
-#include "Date.h";
+#include "Date.h"
 
 
 class Trip
@@ -24,8 +24,7 @@ public:
 	void setDate(Date d);
 	void PrintTrip() const;
 	~Trip();
-	void operator =(const Trip &t);  //operator =
-
+	const Trip& operator=(const Trip &t);
 };
 
 #endif // !__TRIP_H

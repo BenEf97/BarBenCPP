@@ -67,7 +67,7 @@ void Trip::setDes(const char * dest)
 	for (int idx = 0; idx < strlen(dest); idx++)
 	{
 		//Checking if the input doesn't contain letters.
-		if (dest[idx]<'A' || dest[idx]>'z')
+		if ((dest[idx]<'A' || dest[idx]>'z')&&dest[idx]!=' ')
 		{
 			//Default destination is Alabama.
 			Destination = new char[9];
@@ -81,7 +81,7 @@ void Trip::setDes(const char * dest)
 }
 
 
-//check if it works
+//setting the date
 void Trip::setDate(Date d)
 {
 	date = d;
@@ -90,7 +90,8 @@ void Trip::setDate(Date d)
 //Prints trip details
 void Trip::PrintTrip() const
 {
-	cout << "Number of Trip: " << NumOfTrip << "\nDestination: " << Destination << "\nDate: " << date.PrintDate();	
+	cout << "Number of Trip: " << NumOfTrip << "\nDestination: " << Destination << endl;
+	date.PrintDate();
 }
 
 //deletes the trip
@@ -101,14 +102,17 @@ Trip::~Trip()
 
 
 //= operator, gets and object reference and initilize all the fields
-void Trip::operator=(const Trip &t)
+ const Trip& Trip::operator=(const Trip &t)
 {
 	if (this!= &t)
 	{
-		setNoT(t.NumOfTrip);
-		delete Destination;
+		NumOfTrip = t.NumOfTrip;
+		date = t.date;
+		Destination = NULL;
+		delete[] Destination;
+		//if(&Destination!=NULL)
 		Destination = new char[strlen(t.Destination) + 1];
 		strcpy_s(Destination, strlen(t.Destination) + 1, t.Destination);
-		setDate(t.date);
 	}
+	return *this;
 }

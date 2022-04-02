@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "Trip.h"
 
@@ -56,9 +57,9 @@ void Print(Trip* arr, int size)
 	//Checks if the array is empty
 	if (IsEmpty(size))
 		return;
-
+	cout << "List Of Trips:" << endl;
 	//Loop for printing all the elements in the array
-	for (i = 0; i < size; i++)
+	for (int i = 0; i < size; i++)
 	{
 		arr[i].PrintTrip();
 	}
@@ -77,7 +78,7 @@ void EditTrip(Trip* arr, int size)
 
 	//Output for the user
 	cout << "Please enter the number of trip that you would like to edit: " << endl;
-	cin << numEdit;
+	cin >> numEdit;
 
 
 	//Finding the number of the trip in the array
@@ -88,7 +89,8 @@ void EditTrip(Trip* arr, int size)
 		{
 			//assuming for valid input
 			cout << "Would you like to change the destinaton? y/n" << endl;
-			cin << option;
+			cin.ignore();
+			cin >> option;
 
 			//Option for yes
 			if (option=='y')
@@ -98,25 +100,28 @@ void EditTrip(Trip* arr, int size)
 				cout << "Please Enter new destination: " << endl;
 
 				//Assuming for valid input
-				gets(tempName);
+				cin.ignore();
+				cin.getline(tempName, 49,'\n');
+				cin.ignore();
 				arr[i].setDes(tempName);
 			}
 
 
 			//assuming for valid input
 			cout << "Would you like to change the date? y/n" << endl;
-			cin << option;
+			cin.ignore();
+			cin >> option;
 			
 			if (option == 'y')
 			{
 				//Output for user to enter day, mpnth, year
 				unsigned int d, m, y;
 				cout << "Please enter new day: " << endl;
-				cin << d;
+				cin >> d;
 				cout << "Please enter new month: " << endl;
-				cin << m;
+				cin >> m;
 				cout << "Please enter new year:" << endl;
-				cin << y;
+				cin >> y;
 
 				//new date object constructor
 				Date newDate(d,m,y);
@@ -131,7 +136,7 @@ void EditTrip(Trip* arr, int size)
 	}
 	
 	//Trip not found, displays output for the user.
-	cout << "The trip wasn't found. Retruning to the main menu...\n'" << endl;
+	cout << "The trip wasn't found. Retruning to the main menu...\n" << endl;
 	
 }
 
@@ -145,29 +150,45 @@ Trip* AddTrip(Trip* arr, int size)
 
 	//Output for the user, assuming for valid input.
 	cout << "Please enter trip details:\nPlease enter the number of the trip: ";
-	cin << numoftrip;
+	cin >> numoftrip;
 	cout << "Enter Destination: ";
-	gets(dest);
+	cin.ignore();
+	cin.getline(dest,49,'\n');
 	cout << "Please enter day: " << endl;
-	cin << d;
+	cin >> d;
 	cout << "Please enter month: " << endl;
-	cin << m;
+	cin >> m;
 	cout << "Please enter year:" << endl;
-	cin << y;
+	cin >> y;
 	Date newdate(d, m, y);
 
 	//Checking if the original array is empty.
-	if (!IsEmpty(size))
-	{
-		Trip *newArr = new Trip[size + 1];
-		newArr = arr;
-
-		//deletes the old array.
-		arr->~Trip();
-	}
-	newArr[size](numoftrip, dest, newdate);
 	
-	//returns the new array.
-	return newArr;
+	
+		Trip *newArr = new Trip[size + 1];
+		for (int i = 0; i < size; i++)
+		{
+			newArr[i] = arr[i];
+		}
+		newArr[size].setNoT(numoftrip);
+		newArr[size].setDes(dest);
+		newArr[size].setDate(newdate);
+		delete[] arr;
+
+		////check if works
+		//newArr = arr;
+		//Trip temptrip(numoftrip, dest, newdate);
+		//newArr[size] = temptrip;
+		//temptrip.~Trip();
+		///*newArr[size].setNoT(numoftrip);
+		//newArr[size].setDes(dest);
+		//newArr[size].setDate(newdate);*/
+
+		////deletes the old array.
+		////arr->~Trip();
+
+		////returns the new array.
+		return newArr;
+	
 
 }
