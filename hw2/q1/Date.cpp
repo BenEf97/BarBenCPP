@@ -16,10 +16,9 @@ Date::Date(unsigned int d, unsigned int m, unsigned int y)
 //Needed to do empty constructor, check if it's right.
 Date::Date()
 {
-	Date(1, 1, 2000);
-	/*day = 1;
+	day = 1;
 	month = 1;
-	year = 2000;*/
+	year = 2000;
 }
 
 //returns the day
@@ -45,8 +44,8 @@ unsigned int Date::getYear() const
 void Date::setDay(unsigned int d)
 {
 	//Checks for valid input, assuming month has 30 days. If the input is invalid, will set day=0.
-	if (d <= 1 || d >= 30)
-		day = 1;
+	if (d < 1 || d > 30)
+		day = 0;
 	else
 		day = d;
 }
@@ -55,8 +54,8 @@ void Date::setDay(unsigned int d)
 void Date::setMonth(unsigned int m)
 {
 	//Checks for valid inout, if there is invalid input will be set month=0
-	if (m <= 1 || m >= 12)
-		month = 1 ;
+	if (m < 1 || m > 12)
+		month = 0 ;
 	else
 		month = m;
 }

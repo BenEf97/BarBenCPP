@@ -22,8 +22,9 @@ public:
 	void setNoT(unsigned int NoT);
 	void setDes(const char* dest);
 	void setDate(Date d);
+	void PrintTrip() const;
 	~Trip();
-	const Trip& operator =(const Trip &t);  //operator =
+	void operator =(const Trip &t);  //operator =
 
 };
 

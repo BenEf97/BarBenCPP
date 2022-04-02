@@ -41,7 +41,7 @@ unsigned int Trip::getNoT() const
 }
 
 //gets the destination, check if it works.
-Const char * Trip::getDes() const
+const char * Trip::getDes() const
 {
 	return Destination;
 }
@@ -87,6 +87,11 @@ void Trip::setDate(Date d)
 	date = d;
 }
 
+//Prints trip details
+void Trip::PrintTrip() const
+{
+	cout << "Number of Trip: " << NumOfTrip << "\nDestination: " << Destination << "\nDate: " << date.PrintDate();	
+}
 
 //deletes the trip
 Trip::~Trip()
@@ -94,7 +99,16 @@ Trip::~Trip()
 	delete[] Destination;
 }
 
-const Trip & Trip::operator=(const Trip &t)
-{
 
+//= operator, gets and object reference and initilize all the fields
+void Trip::operator=(const Trip &t)
+{
+	if (this!= &t)
+	{
+		setNoT(t.NumOfTrip);
+		delete Destination;
+		Destination = new char[strlen(t.Destination) + 1];
+		strcpy_s(Destination, strlen(t.Destination) + 1, t.Destination);
+		setDate(t.date);
+	}
 }
