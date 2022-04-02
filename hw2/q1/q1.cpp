@@ -57,4 +57,4 @@ void EditTrip(Trip* arr, int size)
 Trip* AddTrip(Trip* arr, int size)
 {
 	//your code…
-}
+}

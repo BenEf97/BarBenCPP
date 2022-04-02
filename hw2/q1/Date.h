@@ -8,7 +8,7 @@ private:
 	unsigned int day, month, year;
 public:
 	Date(unsigned int d, unsigned int m, unsigned int y);
-	Date();
+	Date(); //changed 
 	unsigned int getDay() const;
 	unsigned int getMonth() const;
 	unsigned int getYear() const;

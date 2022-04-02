@@ -93,3 +93,8 @@ Trip::~Trip()
 {
 	delete[] Destination;
 }
+
+const Trip & Trip::operator=(const Trip &t)
+{
+
+}

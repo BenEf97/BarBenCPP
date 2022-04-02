@@ -23,6 +23,7 @@ public:
 	void setDes(const char* dest);
 	void setDate(Date d);
 	~Trip();
+	const Trip& operator =(const Trip &t);  //operator =
 
 };
 
