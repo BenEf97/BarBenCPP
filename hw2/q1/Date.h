@@ -5,16 +5,16 @@
 class Date
 {
 private:
-	unsigned int day, month, year;
+	int day, month, year;
 public:
-	Date(unsigned int d, unsigned int m, unsigned int y);
+	Date(int d, int m, int y);
 	Date(); //changed 
-	unsigned int getDay() const;
-	unsigned int getMonth() const;
-	unsigned int getYear() const;
-	void setDay(unsigned int d);
-	void setMonth(unsigned int m);
-	void setYear(unsigned int y);
+	int getDay() const;
+	int getMonth() const;
+	int getYear() const;
+	void setDay(int d);
+	void setMonth(int m);
+	void setYear(int y);
 	void PrintDate() const;
 };
 

@@ -2,10 +2,9 @@
 #include <iostream>
 using namespace std;
 
-/*Notes: check if the constructors are done right.*/
 
 //Work on date, all the functions.
-Date::Date(unsigned int d, unsigned int m, unsigned int y)
+Date::Date(int d, int m, int y)
 {
 	setDay(d);
 	setMonth(m);
@@ -13,7 +12,7 @@ Date::Date(unsigned int d, unsigned int m, unsigned int y)
 }
 
 
-//Needed to do empty constructor, check if it's right.
+//Empty constructor
 Date::Date()
 {
 	day = 1;
@@ -22,26 +21,26 @@ Date::Date()
 }
 
 //returns the day
-unsigned int Date::getDay() const
+int Date::getDay() const
 {
 	return day;
 }
 
 //returns the month
-unsigned int Date::getMonth() const
+int Date::getMonth() const
 {
 	return month;
 }
 
 //returns the year
-unsigned int Date::getYear() const
+int Date::getYear() const
 {
 	return year;
 }
 
 
 //setting the day, checks for valid input.
-void Date::setDay(unsigned int d)
+void Date::setDay(int d)
 {
 	//Checks for valid input, assuming month has 30 days. If the input is invalid, will set day=0.
 	if (d < 1 || d > 30)
@@ -51,7 +50,7 @@ void Date::setDay(unsigned int d)
 }
 
 //setting the month, checks for valid input.
-void Date::setMonth(unsigned int m)
+void Date::setMonth(int m)
 {
 	//Checks for valid inout, if there is invalid input will be set month=0
 	if (m < 1 || m > 12)
@@ -61,10 +60,12 @@ void Date::setMonth(unsigned int m)
 }
 
 
-//setting the year.
-void Date::setYear(unsigned int y)
+//setting the year
+void Date::setYear(int y)
 {
-	year = y;
+	if (year>0)
+		year = y;
+	else year = 2000;
 }
 
 

@@ -17,7 +17,7 @@ Trip::Trip()
 
 
 //check if date is correct
-Trip::Trip(unsigned int Num, const char * dest, Date d)
+Trip::Trip(int Num, const char * dest, Date d)
 {
 	setNoT(Num);
 	Destination = NULL;
@@ -35,7 +35,7 @@ Trip::Trip(const Trip & t)
 }
 
 //gets the number of the trip.
-unsigned int Trip::getNoT() const
+int Trip::getNoT() const
 {
 	return NumOfTrip;
 }
@@ -53,9 +53,11 @@ Date Trip::getDate() const
 }
 
 //setting the number of the trip
-void Trip::setNoT(unsigned int NoT)
+void Trip::setNoT(int NoT)
 {
-	NumOfTrip = NoT;
+	if (NoT>0)
+		NumOfTrip = NoT;
+	else NumOfTrip = 1000;
 }
 
 //setting the destinaion, checks if it's correct, also check for duplicating of the code.

@@ -69,7 +69,7 @@ void Print(Trip* arr, int size)
 //Edit trip
 void EditTrip(Trip* arr, int size)
 {
-	unsigned int numEdit;
+	int numEdit;
 	char option;
 
 	//Checks if the array is empty
@@ -115,7 +115,7 @@ void EditTrip(Trip* arr, int size)
 			if (option == 'y')
 			{
 				//Output for user to enter day, mpnth, year
-				unsigned int d, m, y;
+				int d, m, y;
 				cout << "Please enter new day: " << endl;
 				cin >> d;
 				cout << "Please enter new month: " << endl;
@@ -145,7 +145,7 @@ void EditTrip(Trip* arr, int size)
 Trip* AddTrip(Trip* arr, int size)
 {
 	//init arguments
-	unsigned int numoftrip,d,m,y;
+	int numoftrip,d,m,y;
 	char dest[50];
 
 	//Output for the user, assuming for valid input.
