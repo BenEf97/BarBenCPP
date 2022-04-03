@@ -63,7 +63,7 @@ void Date::setMonth(int m)
 //setting the year
 void Date::setYear(int y)
 {
-	if (year>0)
+	if (y>0)
 		year = y;
 	else year = 2000;
 }

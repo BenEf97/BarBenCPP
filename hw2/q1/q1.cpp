@@ -38,6 +38,7 @@ void main() {
 		}
 	} while (option != 4);
 	delete[]arr;
+	system("pause");
 }
 
 
@@ -77,7 +78,7 @@ void EditTrip(Trip* arr, int size)
 		return;
 
 	//Output for the user
-	cout << "Please enter the number of trip that you would like to edit: " << endl;
+	cout << "Please enter the number of trip that you would like to edit: ";
 	cin >> numEdit;
 
 
@@ -88,7 +89,7 @@ void EditTrip(Trip* arr, int size)
 		if (arr[i].getNoT()==numEdit)
 		{
 			//assuming for valid input
-			cout << "Would you like to change the destinaton? y/n" << endl;
+			cout << "Would you like to change the destinaton? y/n ";
 			cin.ignore();
 			cin >> option;
 
@@ -97,30 +98,29 @@ void EditTrip(Trip* arr, int size)
 			{
 				//Temp name for new trip
 				char tempName[50];
-				cout << "Please Enter new destination: " << endl;
+				cout << "Please Enter new destination: ";
 
 				//Assuming for valid input
 				cin.ignore();
 				cin.getline(tempName, 49,'\n');
-				cin.ignore();
 				arr[i].setDes(tempName);
 			}
 
 
 			//assuming for valid input
-			cout << "Would you like to change the date? y/n" << endl;
-			cin.ignore();
+			cout << "Would you like to change the date? y/n ";
+			//cin.clear();
 			cin >> option;
 			
 			if (option == 'y')
 			{
 				//Output for user to enter day, mpnth, year
 				int d, m, y;
-				cout << "Please enter new day: " << endl;
+				cout << "Please enter new day: ";
 				cin >> d;
-				cout << "Please enter new month: " << endl;
+				cout << "Please enter new month: ";
 				cin >> m;
-				cout << "Please enter new year:" << endl;
+				cout << "Please enter new year: ";
 				cin >> y;
 
 				//new date object constructor
@@ -154,11 +154,11 @@ Trip* AddTrip(Trip* arr, int size)
 	cout << "Enter Destination: ";
 	cin.ignore();
 	cin.getline(dest,49,'\n');
-	cout << "Please enter day: " << endl;
+	cout << "Please enter day: ";
 	cin >> d;
-	cout << "Please enter month: " << endl;
+	cout << "Please enter month: ";
 	cin >> m;
-	cout << "Please enter year:" << endl;
+	cout << "Please enter year: ";
 	cin >> y;
 	Date newdate(d, m, y);
 
@@ -174,20 +174,6 @@ Trip* AddTrip(Trip* arr, int size)
 		newArr[size].setDes(dest);
 		newArr[size].setDate(newdate);
 		delete[] arr;
-
-		////check if works
-		//newArr = arr;
-		//Trip temptrip(numoftrip, dest, newdate);
-		//newArr[size] = temptrip;
-		//temptrip.~Trip();
-		///*newArr[size].setNoT(numoftrip);
-		//newArr[size].setDes(dest);
-		//newArr[size].setDate(newdate);*/
-
-		////deletes the old array.
-		////arr->~Trip();
-
-		////returns the new array.
 		return newArr;
 	
 
