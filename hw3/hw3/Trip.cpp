@@ -7,6 +7,9 @@ using namespace std;
 maybe need to do '=' operator.
 need to do print trip*/
 
+//init counter
+int Trip::counter = MIN_TRIP_COUNT;
+
 //check if date is correct
 Trip::Trip()
 {

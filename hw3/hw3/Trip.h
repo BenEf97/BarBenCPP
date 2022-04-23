@@ -1,7 +1,7 @@
 //#pragma once
 #ifndef  __TRIP_H
 #define __TRIP_H
-
+#define MIN_TRIP_COUNT 0
 #include "Date.h"
 
 
@@ -11,8 +11,8 @@ private:
 	int NumOfTrip;
 	char* Destination;
 	Date date;
-
 public:
+	static int counter; //should it be in private?
 	Trip();
 	Trip(int Num, const char*dest, Date d);
 	Trip(const Trip& t);

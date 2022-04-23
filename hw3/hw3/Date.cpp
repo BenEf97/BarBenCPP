@@ -69,8 +69,41 @@ void Date::setYear(int y)
 }
 
 
-//Prints the date in dd/mm/yy format.
-void Date::PrintDate() const
+////Prints the date in dd/mm/yy format.
+//void Date::PrintDate() const
+//{
+//	cout << "The Date: " << day << "/" << month << "/" << year << "\n" << endl;
+//}
+
+//<< operator, prints the date details. replaces PrintDate method.
+void Date::operator<<(const Date & d) const
 {
 	cout << "The Date: " << day << "/" << month << "/" << year << "\n" << endl;
+}
+
+//== operator, checks for equality. if true, returns true, else false.
+bool Date::operator==(const Date &d) const
+{
+	if (d.day == this->day && d.month==this->month &&d.year==this->year)
+		return true;
+	return false;
+}
+//checks if the date is later than this date
+bool Date::operator>(const Date & d) const
+{
+	//Year and month might be the same, the day may not.
+	if (d.year >= this->year && d.month >= this->month &&d.day > this->day)
+		return true;
+
+	return false;
+}
+
+//checks if the date is earlier 
+bool Date::operator<(const Date & d) const
+{
+	//Year and month might be the same, the day may not.
+	if (d.year <= this->year && d.month <= this->month &&d.day < this->day)
+		return true;
+
+	return false;
 }

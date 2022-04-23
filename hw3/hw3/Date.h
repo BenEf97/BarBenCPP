@@ -2,6 +2,8 @@
 #ifndef __DATE_H
 #define __DATE_H
 
+//to do: ==,<,> operators
+
 class Date
 {
 private:
@@ -15,7 +17,13 @@ public:
 	void setDay(int d);
 	void setMonth(int m);
 	void setYear(int y);
-	void PrintDate() const;
+	//void PrintDate() const;
+	void operator <<(const Date &d) const;
+	bool operator == (const Date& d) const;
+	bool operator > (const Date& d) const;
+	bool operator < (const Date& d) const;
+
+
 };
 
 #endif // !__DATE_H
