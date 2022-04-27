@@ -19,10 +19,13 @@ public:
 	int getNoT() const;
 	const char* getDes() const;
 	Date getDate() const;
-	void setNoT(int NoT);
+	//void setNoT(int NoT);
 	void setDes(const char* dest);
 	void setDate(Date d);
-	void PrintTrip() const;
+	//void PrintTrip() const;
+	friend ostream& operator<<(ostream& os, const Trip& t);
+
+
 	~Trip();
 	const Trip& operator=(const Trip &t);
 };

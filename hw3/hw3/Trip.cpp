@@ -8,12 +8,13 @@ maybe need to do '=' operator.
 need to do print trip*/
 
 //init counter
-int Trip::counter = MIN_TRIP_COUNT;
+ int Trip::counter = MIN_TRIP_COUNT;
 
 //check if date is correct
 Trip::Trip()
 {
-	NumOfTrip = 0;
+	counter++;
+	NumOfTrip = counter;
 	Destination = NULL;
 	date;
 }
@@ -22,7 +23,9 @@ Trip::Trip()
 //check if date is correct
 Trip::Trip(int Num, const char * dest, Date d)
 {
-	setNoT(Num);
+	//setNoT(Num);
+	counter++;
+	NumOfTrip = counter;
 	Destination = NULL;
 	setDes(dest);
 	setDate(d);
@@ -31,7 +34,9 @@ Trip::Trip(int Num, const char * dest, Date d)
 //Copy constructor, check if it works
 Trip::Trip(const Trip & t)
 {
-	NumOfTrip = t.NumOfTrip;
+	counter++;
+	NumOfTrip = counter;
+	//NumOfTrip = t.NumOfTrip;
 	Destination = NULL;
 	setDes(t.Destination);
 	date = t.date;
@@ -55,13 +60,13 @@ Date Trip::getDate() const
 	return date;
 }
 
-//setting the number of the trip
-void Trip::setNoT(int NoT)
-{
-	if (NoT > 0)
-		NumOfTrip = NoT;
-	else NumOfTrip = 1000;
-}
+////setting the number of the trip
+//void Trip::setNoT(int NoT)
+//{
+//	if (NoT > 0)
+//		NumOfTrip = NoT;
+//	else NumOfTrip = 1000;
+//}
 
 //setting the destinaion, checks if it's correct, also check for duplicating of the code.
 void Trip::setDes(const char * dest)
@@ -93,15 +98,16 @@ void Trip::setDate(Date d)
 }
 
 //Prints trip details
-void Trip::PrintTrip() const
-{
-	cout << "Number of Trip: " << NumOfTrip << "\nDestination: " << Destination << endl;
-	date.PrintDate();
-}
-
+//void Trip::PrintTrip() const
+//{
+//	cout << "Number of Trip: " << NumOfTrip << "\nDestination: " << Destination <<endl;
+//	
+//}
+//
 //deletes the trip
 Trip::~Trip()
 {
+	//counter--;
 	delete[] Destination;
 }
 
@@ -120,4 +126,10 @@ const Trip& Trip::operator=(const Trip &t)
 		strcpy_s(Destination, strlen(t.Destination) + 1, t.Destination);
 	}
 	return *this;
+}
+//Print Trip
+ostream & operator<<(ostream & os, const Trip & t)
+{
+	os << "Number of Trip: " << t.NumOfTrip << "\nDestination: " << t.Destination <<t.date<< endl;
+	return os;
 }

@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Date.cpp" />
+    <ClCompile Include="lastMain.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ManagementTrips.cpp" />
     <ClCompile Include="Trip.cpp" />

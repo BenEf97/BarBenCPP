@@ -1,6 +1,8 @@
 //#pragma once
 #ifndef __DATE_H
 #define __DATE_H
+#include <iostream>
+using namespace std;
 
 //to do: ==,<,> operators
 
@@ -18,7 +20,7 @@ public:
 	void setMonth(int m);
 	void setYear(int y);
 	//void PrintDate() const;
-	void operator <<(const Date &d) const;
+	friend ostream& operator<<(ostream& os,const Date& d);
 	bool operator == (const Date& d) const;
 	bool operator > (const Date& d) const;
 	bool operator < (const Date& d) const;

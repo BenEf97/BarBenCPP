@@ -76,9 +76,10 @@ void Date::setYear(int y)
 //}
 
 //<< operator, prints the date details. replaces PrintDate method.
-void Date::operator<<(const Date & d) const
+ostream& operator<<(ostream& os, const Date &d)
 {
-	cout << "The Date: " << day << "/" << month << "/" << year << "\n" << endl;
+	os << "The Date: " <<d.day<< "/" << d.month << "/" << d.year << "\n" << endl;
+	return os;
 }
 
 //== operator, checks for equality. if true, returns true, else false.
