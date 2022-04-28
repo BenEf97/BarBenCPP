@@ -21,7 +21,7 @@ Trip::Trip()
 
 
 //check if date is correct
-Trip::Trip(int Num, const char * dest, Date d)
+Trip::Trip(const char * dest, Date d)
 {
 	//setNoT(Num);
 	counter++;

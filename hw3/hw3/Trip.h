@@ -14,7 +14,7 @@ private:
 public:
 	static int counter; //should it be in private?
 	Trip();
-	Trip(int Num, const char*dest, Date d);
+	Trip(const char*dest, Date d);
 	Trip(const Trip& t);
 	int getNoT() const;
 	const char* getDes() const;
@@ -24,8 +24,6 @@ public:
 	void setDate(Date d);
 	//void PrintTrip() const;
 	friend ostream& operator<<(ostream& os, const Trip& t);
-
-
 	~Trip();
 	const Trip& operator=(const Trip &t);
 };
