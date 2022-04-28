@@ -115,7 +115,7 @@ Trip::~Trip()
 //= operator, gets and object reference and initilize all the fields
 const Trip& Trip::operator=(const Trip &t)
 {
-	if (this != &t)
+	if (this != &t) //is there an != operator?
 	{
 		NumOfTrip = t.NumOfTrip;
 		date = t.date;
