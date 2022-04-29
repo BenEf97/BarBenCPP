@@ -12,18 +12,18 @@ void main() {
 	int option;
 	do
 	{
-		cout << "Please Select an option: \n1.Print Trips\n2.Delete Trips\n3.Add Trip\n4.Exit" << endl;
+		cout << "\nPlease Select an option: \n1.Print Trips\n2.Delete Trips\n3.Add Trip\n4.Exit" << endl;
 			cin >> option;
 		switch (option)
 		{
 		case 1:
-			cout << mts;
+			cout <<"****Trips in the database******\n"<< mts;
 			break;
 		case 2:
-			//your code…
+			deleteTrips(&mts);
 			break;
 		case 3:
-			//your code…
+			AddTrip(&mts);
 			break;
 		case 4:
 			cout << "bye bye!" << endl;
@@ -35,7 +35,7 @@ void main() {
 	} while (option != 4);
 }
 
-//delets trip from mts       NEEDS DEBUG!!!!!!!!!
+//delets trip from mts 
 void deleteTrips(ManagementTrips* mts)
 {
 	int d, m, y;
@@ -46,9 +46,9 @@ void deleteTrips(ManagementTrips* mts)
 	cout << "Please enter year: ";
 	cin >> y;
 	Date newD(d, m, y);
-	Trip t(NULL, newD);
+	Trip t(newD);
 	*mts -= t;
-	cout << "All trips in " << newD << " deleted!" << endl;
+	cout << "All trips deleted in " << newD << endl;
 }
 
 //adds trips to mts
@@ -58,7 +58,7 @@ void AddTrip(ManagementTrips* mts)
 	int d, m, y;
 	char dest[50];
 
-	cout << "Please enter trip details:\Enter Destination: ";
+	cout << "Please enter trip details:\nEnter Destination: ";
 	cin.ignore();
 	cin.getline(dest, 49, '\n');
 	cout << "Please enter day: ";

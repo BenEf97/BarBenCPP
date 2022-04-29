@@ -3,9 +3,7 @@
 #include <cstring>
 using namespace std;
 
-/*Notes:
-maybe need to do '=' operator.
-need to do print trip*/
+
 
 //init counter
  int Trip::counter = MIN_TRIP_COUNT;
@@ -13,14 +11,13 @@ need to do print trip*/
 //check if date is correct
 Trip::Trip()
 {
-	counter++;
 	NumOfTrip = counter;
 	Destination = NULL;
 	date;
 }
 
 
-//check if date is correct
+// constructor
 Trip::Trip(const char * dest, Date d)
 {
 	//setNoT(Num);
@@ -31,12 +28,20 @@ Trip::Trip(const char * dest, Date d)
 	setDate(d);
 }
 
-//Copy constructor, check if it works
+//Empty constructor
+Trip::Trip(Date d)
+{
+	
+	NumOfTrip = 0;
+	Destination = NULL;
+	setDate(d);
+}
+
+//Copy constructor
 Trip::Trip(const Trip & t)
 {
 	counter++;
 	NumOfTrip = counter;
-	//NumOfTrip = t.NumOfTrip;
 	Destination = NULL;
 	setDes(t.Destination);
 	date = t.date;
@@ -60,13 +65,6 @@ Date Trip::getDate() const
 	return date;
 }
 
-////setting the number of the trip
-//void Trip::setNoT(int NoT)
-//{
-//	if (NoT > 0)
-//		NumOfTrip = NoT;
-//	else NumOfTrip = 1000;
-//}
 
 //setting the destinaion, checks if it's correct, also check for duplicating of the code.
 void Trip::setDes(const char * dest)
@@ -97,13 +95,7 @@ void Trip::setDate(Date d)
 	date = d;
 }
 
-//Prints trip details
-//void Trip::PrintTrip() const
-//{
-//	cout << "Number of Trip: " << NumOfTrip << "\nDestination: " << Destination <<endl;
-//	
-//}
-//
+
 //deletes the trip
 Trip::~Trip()
 {
@@ -127,9 +119,9 @@ const Trip& Trip::operator=(const Trip &t)
 	}
 	return *this;
 }
-//Print Trip
+//Print Trip '<<' operator
 ostream & operator<<(ostream & os, const Trip & t)
 {
-	os << "Number of Trip: " << t.NumOfTrip << "\nDestination: " << t.Destination <<t.date<< endl;
+	os << "Number of Trip: " << t.NumOfTrip << "\nDestination: " << t.Destination <<"\n"<<t.date<< endl;
 	return os;
 }

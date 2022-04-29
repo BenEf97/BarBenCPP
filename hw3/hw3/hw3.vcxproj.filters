@@ -27,9 +27,6 @@
     <ClCompile Include="ManagementTrips.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="lastMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Date.h">
