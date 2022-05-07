@@ -123,7 +123,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BirthdayCake.cpp" />
+    <ClCompile Include="Cake.cpp" />
+    <ClCompile Include="Date.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MousseCake.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BirthdayCake.h" />
+    <ClInclude Include="Cake.h" />
+    <ClInclude Include="Date.h" />
+    <ClInclude Include="MousseCake.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
