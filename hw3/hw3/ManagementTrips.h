@@ -7,11 +7,12 @@ private:
 	Trip** arrTrips;
 	int idx;
 public:
-	//check how to do constructor
 	ManagementTrips();
 	ManagementTrips(const ManagementTrips& m);
 	const ManagementTrips& operator=(const ManagementTrips& m);
-
+	const ManagementTrips& operator+=(const Trip& t);
+	const ManagementTrips& operator-=(const Trip& t);
+	friend ostream& operator<<(ostream& os, const ManagementTrips& m);
 };
 
 #endif // !__MANAGETRIPS_H
