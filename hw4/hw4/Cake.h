@@ -10,6 +10,7 @@ class Cake
 	bool glutenFree;
 public:
 	Cake(Date expiryDate, const int diameter, double height, double price, int storage, bool glutenFree);
+	Cake(const Cake &c);
 	friend ostream& operator<<(ostream& os, const Cake& c);
 	bool operator == (const Cake c) const;
 	const Cake& operator+=(int increment);
