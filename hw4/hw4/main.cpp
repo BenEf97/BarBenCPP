@@ -1,7 +1,9 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Date.h"
 #include "MousseCake.h"
 #include "BirthdayCake.h"
 #include <iostream>
+
 using namespace std;
 
 void main()

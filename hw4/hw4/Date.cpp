@@ -5,7 +5,7 @@ using namespace std;
 
 //Work on date, all the functions.
 Date::Date(int d, int m, int y)
-{
+{ 
 	setDay(d);
 	setMonth(m);
 	setYear(y);
@@ -17,7 +17,7 @@ Date::Date()
 {
 	day = 1;
 	month = 1;
-	year = 2000;
+	year = 2021;
 }
 
 //returns the day
@@ -40,21 +40,25 @@ int Date::getYear() const
 
 
 //setting the day, checks for valid input.
-void Date::setDay(int d)
+void Date::setDay(int d) throw( char*)
 {
-	//Checks for valid input, assuming month has 30 days. If the input is invalid, will set day=0.
-	if (d < 1 || d > 30)
-		day = 0;
+	//Checks for valid input, assuming month has 31 days. If the input is invalid, will set day=0.
+	if (d < 1 || d > 31)
+	{
+		throw "Invalid days input!";
+		//day = 0;
+	}
 	else
 		day = d;
 }
 
 //setting the month, checks for valid input.
-void Date::setMonth(int m)
+void Date::setMonth(int m)  throw( char*)
 {
 	//Checks for valid inout, if there is invalid input will be set month=0
 	if (m < 1 || m > 12)
-		month = 0;
+		throw "Invalid months input!";
+		//month = 0;
 	else
 		month = m;
 }
@@ -65,7 +69,7 @@ void Date::setYear(int y)
 {
 	if (y > 0)
 		year = y;
-	else year = 2000;
+	else year = 2021;
 }
 
 

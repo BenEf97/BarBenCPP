@@ -1,7 +1,8 @@
 #pragma once
 #include "Date.h"
-class Cake
+class Cake //The cake is a lie
 {
+protected:
 	Date expiryDate;
 	const int diameter;
 	double height;
@@ -14,5 +15,7 @@ public:
 	friend ostream& operator<<(ostream& os, const Cake& c);
 	bool operator == (const Cake c) const;
 	const Cake& operator+=(int increment);
+	const Cake& operator=(const Cake &c);
+
 
 };
