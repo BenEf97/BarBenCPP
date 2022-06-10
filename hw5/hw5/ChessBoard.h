@@ -7,5 +7,7 @@ private:
 	sf::RectangleShape matrix[8][8];
 public:
 	ChessBoard(int width,int height);
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+
 };
 
